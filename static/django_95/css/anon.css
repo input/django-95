@@ -1,0 +1,27 @@
+#programs {
+  left: .5rem;
+  position: absolute;
+  top: 1.5rem;
+}
+
+#programs a {
+  align-items: center;
+  color: var(--color-text-inverse);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+
+#programs .icon {
+  margin-bottom: .25rem;
+}
+
+.anon #container {
+  justify-content: center;
+}
+
+.anon .window__message:not(:has(.errornote)) {
+  display: none;
+}

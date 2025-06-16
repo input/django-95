@@ -1,0 +1,62 @@
+:root {
+  /* 'Windows Standard' color scheme */
+  --color-black: black;
+  --color-blue: blue;
+  --color-gray: gray;
+  --color-light-silver: #dfdfdf;
+  --color-navy: navy;
+  --color-silver: silver;
+  --color-teal: teal;
+  --color-white: white;
+
+  /* Custom additions */
+  --color-light-blue: #edf9ff;
+  --color-light-red: #ffeded;
+  --color-light-yellow: #ffffed;
+
+  /* Colors */
+  --color-desktop: var(--color-teal);
+  --color-django-95: var(--color-gray);
+  --color-error: var(--color-light-red);
+  --color-help: var(--color-light-yellow);
+  --color-legend: var(--color-silver);
+  --color-message: var(--color-light-blue);
+  --color-option: var(--color-navy);
+  --color-surface: var(--color-silver);
+  --color-text: var(--color-black);
+  --color-text-inverse: var(--color-white);
+  --color-title-bar: var(--color-navy);
+  --color-title-bar-inactive: var(--color-gray);
+
+  /* Fonts */
+  --font-family: MSSansSerif, Tahoma, Verdana, sans-serif;
+  --font-family-bold: MSSansSerifBold, Tahoma, Verdana, sans-serif;
+  --font-size-small: .8rem;
+  --font-size-medium: 1rem;
+
+  /* Borders */
+  --border-blockquote: 1px solid var(--color-black);
+  --border-button-outer: inset -1px -1px var(--color-black), inset 1px 1px var(--color-white);
+  --border-button-inner: inset -2px -2px var(--color-gray);
+  --border-button-outer-active: inset -1px -1px var(--color-white), inset 1px 1px var(--color-black);
+  --border-button-inner-active: inset 2px 2px var(--color-gray);
+  --border-button-primary: 1px solid var(--color-black);
+  --border-changelist-filter: 2px dotted var(--color-gray);
+  --border-checkbox-outer: inset -1px -1px var(--color-white), inset 1px 1px var(--color-gray);
+  --border-checkbox-inner: inset -2px -2px var(--color-silver), inset 2px 2px var(--color-black);
+  --border-clock: inset -1px -1px var(--color-white), inset 1px 1px var(--color-gray);
+  --border-details: 2px solid var(--color-gray);
+  --border-field-outer: inset -1px -1px var(--color-white), inset 1px 1px var(--color-gray);
+  --border-field-inner: inset -2px -2px var(--color-white), inset 2px 2px var(--color-black);
+  --border-fieldset-outer: inset -1px -1px var(--color-white), inset 1px 1px var(--color-gray);
+  --border-fieldset-inner: inset -2px -2px var(--color-gray), inset 2px 2px var(--color-white);
+  --border-select-outer: inset -1px -1px var(--color-white), inset 1px 1px var(--color-gray);
+  --border-select-inner: inset -2px -2px var(--color-silver), inset 2px 2px var(--color-black);
+  --border-select-button-outer: inset -1px -1px var(--color-black), inset 1px 1px var(--color-silver);
+  --border-select-button-inner: inset -2px -2px var(--color-gray), inset 2px 2px var(--color-white);
+  --border-taskbar: 1px solid var(--color-white);
+  --border-th-outer: inset -1px -1px var(--color-black), inset 1px 1px var(--color-white);
+  --border-th-inner: inset -2px -2px var(--color-gray), inset 2px 2px var(--color-light-silver);
+  --border-window-outer: inset -1px -1px var(--color-black), inset 1px 1px var(--color-silver);
+  --border-window-inner: inset -2px -2px var(--color-gray), inset 2px 2px var(--color-white);
+}

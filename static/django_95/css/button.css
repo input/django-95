@@ -1,0 +1,31 @@
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.button,
+.btn {
+  background: var(--color-surface);
+  border: none;
+  border-radius: 0;
+  box-shadow: var(--border-button-outer), var(--border-button-inner);
+  box-sizing: border-box;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: .3rem 1.5rem;
+  /* .btn */
+  display: inline-block;
+  text-decoration: none;
+}
+
+input[type="submit"].btn__primary {
+  border: var(--border-button-primary);
+}
+
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+.btn:active,
+.button:active {
+  box-shadow: var(--border-button-outer-active), var(--border-button-inner-active);
+}

@@ -1,0 +1,160 @@
+{% load i18n static django_95_tags %}
+{% is_content_window as content_window %}
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% block stylesheet %}{% static "django_95/css/base.css" %}{% endblock %}">
+  {% block extrastyle %}{% endblock %}
+  {% block extrahead %}{% endblock %}
+  <script src="{% static "django_95/js/window.js" %}" defer></script>
+  <script src="{% static "django_95/js/start-menu.js" %}" defer></script>
+  <script src="{% static "django_95/js/clock.js" %}" defer></script>
+  <script src="{% static "django_95/js/form.js" %}" defer></script>
+  {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE">{% endblock %}
+</head>
+
+<body class="{% block bodyclass %}{% endblock %}" data-admin-utc-offset="{% now "Z" %}">
+  <a href="#content-start" class="skip-to-main-content-link">{% translate 'Skip to main content' %}</a>
+
+  <div id="container">
+    {% if not is_popup and user.is_authenticated %}
+    <div id="header-aside">
+      {% block header %}
+      <header id="header" class="window">
+        <div class="window__title-bar">
+          <p>{% translate 'Welcome' %}</p>
+          <button type="button" class="btn__close">X</button>
+        </div>
+
+        <div class="window__body">
+          {% block usertools %}
+          {% if has_permission %}
+          <div id="user-tools">
+            {% block welcome-msg %}
+            <div class="welcome-message">
+              <div id="branding">
+                {% block branding %}{% endblock %}
+              </div>
+            {% translate 'Welcome, ' %} {% firstof user.get_short_name user.get_username %}.
+            </div>
+            {% endblock %}
+          </div>
+          {% endif %}
+          {% endblock %}
+        </div>
+
+        {% block nav-breadcrumbs %}
+        <nav aria-label="{% translate 'Breadcrumbs' %}">
+          {% block breadcrumbs %}
+          <div class="breadcrumbs">
+            <a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
+            {% if title %} / {{ title }}{% endif %}
+          </div>
+          {% endblock %}
+        </nav>
+        {% endblock %}
+      </header>
+      {% endblock %}
+
+      {% if is_nav_sidebar_enabled %}
+      <aside>
+        {% block nav-sidebar %}
+        {% include "admin/nav_sidebar.html" %}
+        {% endblock %}
+      </aside>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <main class="main" id="main">
+      {% block messages %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="window window__message">
+        <div class="window__title-bar">
+          <p>{{ message.tags|capfirst }}</p>
+          <button type="button" class="btn__close">X</button>
+        </div>
+        <div class="window__body">
+          <div class="window__content">
+            <span class="icon icon__{{ message.tags }}"></span>
+            {{ message }}
+          </div>
+          <div class="submit-row">
+            <input type="submit" value="OK" class="btn__close">
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endblock messages %}
+
+      <div id="content-start" class="content" tabindex="-1">
+        <div id="content" {% if content_window %}class="window"{% endif %}>
+          {% if content_window %}
+          <div class="window__title-bar">
+            <p>{{ title }}{% if subtitle %} - {{ subtitle }}{% endif %}</p>
+            <button type="button" class="btn__close">X</button>
+          </div>
+          <div class="window__body">
+          {% endif %}
+
+          {% block pretitle %}{% endblock %}
+          {% block content %}
+            {% block object-tools %}{% endblock %}
+            {{ content }}
+          {% endblock %}
+          {% block sidebar %}{% endblock %}
+
+          {% if content_window %}
+          </div>
+          {% endif %}
+        </div>
+
+        {% block footer %}<div id="footer"></div>{% endblock %}
+      </div>
+    </main>
+  </div>
+
+  <div id="start-menu-taskbar">
+    <div id="start-menu" class="hide">
+      <div id="django-95"><span>Django</span>95</div>
+      <ul>
+        <li><a href="https://www.djangoproject.com"><span class="icon icon__help-book"></span>{% translate 'Help' %}</a></li>
+        {% if site_url %}
+        <li><a href="{{ site_url }}"><span class="icon icon__website"></span>{% translate 'View site' %}</a></li>
+        {% endif %}
+        {% if user.is_active and user.is_staff %}
+        {% url 'django-admindocs-docroot' as docsroot %}
+          {% if docsroot %}
+          <li><a href="{{ docsroot }}"><span class="icon icon__help-book"></span>{% translate 'Documentation' %}</a></li>
+          {% endif %}
+        {% endif %}
+        {% if user.has_usable_password %}
+        <li><a href="{% url 'admin:password_change' %}"><span class="icon icon__keys"></span>{% translate 'Change password' %}</a></li>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <form id="logout-form" method="post" action="{% url 'admin:logout' %}">
+          {% csrf_token %}
+          <button type="submit"><span class="icon icon__shut-down"></span>{% translate 'Log out...' %}</button>
+        </form>
+        {% else %}
+        <li><a href="{% url 'admin:login' %}"><span class="icon icon__shut-down"></span>{% translate 'Log in...' %}</a></li>
+        {% endif %}
+      </ul>
+    </div>
+    <div id="taskbar">
+      <button id="btn__start" name="start" type="button">
+        {% translate 'Start' %}
+      </button>
+      <div id="clock">12:34 AM</div>
+    </div>
+  </div>
+
+  {% block extrabody %}{% endblock extrabody %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" href="{% static "django_95/css/anon.css" %}">{% endblock %}
+{% block bodyclass %}{{ block.super }} anon{% endblock %}
+{% block nav-sidebar %}{% endblock %}
+
+{% block content %}
+<div class="window">
+  <div class="window__title-bar">
+    <p>{% translate "Logged out" %}</p>
+    <button type="button" class="btn__close">X</button>
+  </div>
+  <div class="window__body">
+    <p>{% translate "Thanks for spending some quality time with the website today." %}</p>
+    <a href="{% url 'admin:index' %}" class="btn">{% translate 'Log in again' %}</a>
+  </div>
+</div>
+
+{% include "admin/includes/programs.html" %}
+{% endblock %}

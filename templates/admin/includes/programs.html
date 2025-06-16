@@ -1,0 +1,8 @@
+{% load i18n %}
+
+<div id="programs">
+  {% if site_url %}
+  <a href="{{ site_url }}"><span class="icon icon__website"></span>{% translate 'Website' %}</a>
+  {% endif %}
+  <a href="{% url 'admin:login' %}"><span class="icon icon__keys"></span>{% translate 'Admin' %}</a>
+</div>

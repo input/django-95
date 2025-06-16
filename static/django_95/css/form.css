@@ -1,0 +1,322 @@
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  border: none;
+  border-radius: 0;
+  box-shadow: var(--border-field-outer), var(--border-field-inner);
+  padding: 2px 4px;
+}
+
+.form-row {
+  margin: .75rem 0;
+}
+
+.flex-container label {
+  display: block;
+}
+
+/* checkbox */
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: var(--color-text-inverse);
+  box-shadow: var(--border-checkbox-outer), var(--border-checkbox-inner);
+  height: 1rem;
+  vertical-align: -3px;
+  width: 1rem;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  display: block;
+  height: 1rem;
+  visibility: hidden;
+  width: 1rem;
+}
+
+input[type="checkbox"]:checked::before {
+  background: url(../img/icon-check.svg) no-repeat center center;
+  background-size: .6rem .6rem;
+  visibility: visible;
+}
+
+input[type="checkbox"]:disabled {
+  background-color: var(--color-surface);
+}
+
+.checkbox-row {
+  align-items: center;
+  display: flex;
+}
+
+.checkbox-row input[type="checkbox"] {
+  margin-bottom: 3px;
+}
+
+.vCheckboxLabel {
+  padding-left: .5rem;
+}
+
+/* Fieldset */
+
+fieldset {
+  border: none;
+  box-shadow: var(--border-fieldset-outer), var(--border-fieldset-inner);
+  margin-bottom: .75rem;
+  padding: .75rem;
+}
+
+legend {
+  background-color: var(--color-legend);
+  padding: .1rem .25rem 0;
+}
+
+/* Select */
+
+select {
+  appearance: none;
+  background-color: var(--color-text-inverse);
+  border: none;
+  border-radius: 0;
+  box-shadow: var(--border-select-outer), var(--border-select-inner);
+  min-width: 50%;
+  padding: .2rem;
+}
+
+select:not(select[multiple]) {
+  height: 2rem;
+  padding-right: 3rem;
+}
+
+.select-wrap {
+  display: inline-block;
+  position: relative;
+}
+
+.select-wrap::after {
+  background-color: var(--color-surface);
+  box-shadow: var(--border-select-button-outer), var(--border-select-button-inner);
+  content: url(../img/arrow-down.png);
+  display: flex;
+  height: calc(2rem - 4px);
+  justify-content: center;
+  pointer-events: none;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  width: calc(2rem - 4px);
+}
+
+select[multiple] {
+  min-height: 10rem;
+}
+
+option:hover,
+option:checked {
+  background-color: var(--color-option);
+  color: var(--color-text-inverse);
+}
+
+/* Help */
+
+.help:not(.help-tooltip) {
+  background: var(--color-help) url(../img/icon-help-bulb.png) no-repeat .5rem center;
+  box-shadow: var(--border-clock);
+  margin: .5rem 0 1rem;
+  padding: .75rem .75rem .75rem 3rem;
+}
+
+/* Errorlist */
+
+.errorlist,
+body:not(.anon) .errornote {
+  background-color: var(--color-error);
+  box-shadow: var(--border-clock);
+  margin: .5rem 0 1rem;
+  padding: .75rem;
+}
+
+.errorlist {
+  padding-left: 1.75rem;
+}
+
+/* Object tools */
+
+.object-tools {
+  margin: 0 0 .5rem;
+}
+
+.window__body:has(.window__pane) .object-tools {
+  margin: .5rem;
+}
+
+.object-tools li {
+  list-style: none;
+}
+
+/* Changelist */
+
+#changelist {
+  display: flex;
+  gap: .2rem;
+}
+
+#changelist-filter {
+  padding: .3rem;
+}
+
+#changelist-filter ul {
+  border-left: var(--border-changelist-filter);
+  margin-left: .5rem;
+}
+
+#changelist-filter h2 {
+  align-items: center;
+  display: flex;
+  font-size: var(--font-size-medium);
+  gap: .2rem;
+}
+
+#changelist-filter li {
+  list-style: none;
+}
+
+#changelist-filter li::before {
+  color: gray;
+  content: '......';
+}
+
+/* Selector */
+
+.form-row:not(:first-child):has(.selector) {
+  border-top: 1px solid white;
+  box-shadow: 0 -1px gray;
+  margin: 2rem 0;
+  padding-top: 2rem;
+}
+
+.form-row:has(.selector) label {
+  margin-bottom: .5rem;
+}
+
+.selector {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+@media (min-width: 50rem) {
+  .selector {
+    flex-direction: row;
+  }
+}
+
+.selector h2 {
+  align-items: center;
+  display: flex;
+  font-size: var(--font-size-medium);
+  gap: .25rem;
+  margin-bottom: .5rem;
+}
+
+.selector-available,
+.selector-chosen {
+  flex: 1;
+}
+
+.selector-chooser {
+  align-items: center;
+  box-shadow: var(--border-fieldset-outer), var(--border-fieldset-inner);
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  justify-content: center;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+.selector-chooser li {
+  list-style: none;
+}
+
+.selector-filter {
+  margin-bottom: .5rem;
+}
+
+.selector select[multiple] {
+  width: -webkit-fill-available;
+}
+
+/* Datetime */
+
+.datetime input[type="text"] {
+  margin: .5rem .5rem 0;
+}
+
+.datetimeshortcuts .btn:last-child {
+  padding: .3rem .8rem;
+}
+
+.calendar tbody th {
+  background-color: gray;
+  color: var(--color-surface);
+}
+
+.calendar tbody th,
+.calendar tbody td {
+  text-align: center;
+}
+
+.calendar tbody tr,
+.calendar tbody td {
+  border: none;
+}
+
+.calendarbox div:has(.calendarnav-previous),
+.calendar-shortcuts {
+  margin: .4rem 0;
+}
+
+.calendarbox div:has(.calendarnav-previous) {
+  text-align: center;
+}
+
+.calendar-cancel {
+  margin: .3rem;
+  text-align: center;
+}
+
+.clockbox h2 {
+  font-size: var(--font-size-medium);
+  margin: .3rem;
+}
+
+.timelist {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  margin: 0;
+}
+
+.timelist li {
+  list-style: none;
+}
+
+/* Details */
+
+details summary {
+  list-style: none;
+}
+
+details summary::before {
+  border: var(--border-details);
+  content: "+";
+  margin-right: .2rem;
+  padding: 0 .1rem 0 .2rem;
+}
+
+details[open] summary::before {
+  content: "–";
+}

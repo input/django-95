@@ -1,0 +1,71 @@
+.icon {
+  background-repeat: no-repeat;
+  display: block;
+  height: 32px;
+  width: 32px;
+}
+
+.icon__error {
+  background-image: url(../img/icon-error.png);
+}
+
+.icon__filter {
+  background-image: url(../img/icon-filter.png);
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+}
+
+.icon__help-book {
+  background-image: url(../img/icon-help-book.png);
+}
+
+.icon__info {
+  background-image: url(../img/icon-info.png);
+}
+
+.icon__keys {
+  background-image: url(../img/icon-keys.png);
+}
+
+.icon__settings {
+  background-image: url(../img/icon-settings.png);
+}
+
+.icon__shut-down {
+  background-image: url(../img/icon-shut-down.png);
+}
+
+.icon__success {
+  background-image: url(../img/icon-success.png);
+}
+
+.icon__warning {
+  background-image: url(../img/icon-warning.png);
+}
+
+.icon__website {
+  background-image: url(../img/icon-website.png);
+}
+
+/*
+The clock and date icons use a different classname format because they reference
+a class which has been set externally in
+django/contrib/admin/static/admin/js/admin/DateTimeShortcuts.js
+*/
+
+.clock-icon,
+.date-icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+}
+
+.clock-icon {
+  background-image: url(../img/icon-clock.png);
+}
+
+.date-icon {
+  background-image: url(../img/icon-date.png);
+}
