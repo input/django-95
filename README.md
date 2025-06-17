@@ -9,6 +9,8 @@ Welcome! Django 95 is an admin theme for [Django](https://www.djangoproject.com)
 
 Django 95 is in initial development and not currently recommended for production use. However, theoretically, everything should work. So, for those who are curious, please do try it out.
 
+And if you'd like an overview of Django 95's development process, details can be found in my blog post '[How to create a Django admin theme](https://laurencemercer.com/blog/how-to-create-a-django-admin-theme/)'.
+
 
 ## Requirements
 
@@ -21,7 +23,7 @@ Clone or download `django-95` into your project's root directory.
 
 Rename the app directory from `django-95` to `django_95`.
 
-Then edit your project's `settings.py` file and add `'django_95'` to `INSTALLED_APPS`:
+Edit your project's `settings.py` file and add `'django_95'` to `INSTALLED_APPS`:
 
 ```py
 INSTALLED_APPS = [
